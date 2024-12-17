@@ -1,0 +1,669 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  .wrapper {
+    width: 90%; 
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    padding: 20px 0; 
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Estilos para la hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Esconde los enlaces por defecto */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+    }
+
+    nav ul.active {
+        display: flex; /* Muestra los enlaces cuando se activa el menú */
+    }
+}
+  body {
+    padding-top: 100px; /* Mantén el espacio solo aquí */
+    margin: 0; /* Elimina cualquier margen extra */
+  }
+  
+  nav {
+    float: left; /* Desplazamos el nav hacia la izquierda */
+  }
+  nav ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
+  }
+  nav ul li {
+    float: left;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 16px;
+  }
+  nav ul li a {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 20px;
+    color: #000000;
+    text-decoration: none;
+  }
+  nav ul li:hover {
+    background: #fcae26;
+  }
+  .contenido {
+    padding-top: 80px;
+  }
+  .logo {
+    height: 60px; /* Ajusta según lo que necesites */
+    width: auto;  /* Mantiene la proporción del logo */
+  }
+
+  #container-slider {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+#slider {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+#slider li {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 1s;
+    z-index: -1;
+    opacity: 0;
+}
+
+#container-slider .arrowPrev, #container-slider .arrowNext {
+    font-size: 30pt;
+    color: rgba(204, 204, 204, 0.65);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+}
+
+#container-slider .arrowPrev {
+    left: 50px;
+}
+
+#container-slider .arrowNext {
+    right: 50px;
+}
+
+.content_slider {
+    padding: 15px 30px;
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+}
+
+.content_slider div {
+    text-align: center;
+}
+
+.content_slider h2 {
+    font-family: 'Arial';
+    font-size: 30pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.content_slider p {
+    font-size: 15pt;
+    font-family: 'Arial';
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+#slider li .content_slider {
+    background: rgba(0, 0, 0, 0.50);
+    padding: 10px 125px;
+}
+
+.content_slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnSlider {
+    color: #FFF;
+    font-size: 15pt;
+    font-family: 'Arial';
+    letter-spacing: 1px;
+    padding: 10px 50px;
+    border: 1px solid #CCC;
+    background: rgba(13, 13, 13, 0.55);
+    border-radius: 31px;
+    text-decoration: none;
+    transition: 0.5s all;
+}
+
+.btnSlider:hover {
+    background: #111;
+    border: 1px solid #111;
+}
+
+.listslider {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    bottom: 5%;
+    list-style: none;
+    z-index: 2;
+    transform: translateX(-50%);
+}
+
+.listslider li {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.listslider li a {
+    background: #CCC;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.item-select-slid {
+    background: #FFF !important;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    #slider {
+        height: 400px;
+    }
+
+    .content_slider h2 {
+        font-size: 20pt;
+    }
+
+    .content_slider p {
+        font-size: 14pt;
+    }
+
+    #container-slider .arrowPrev, #container-slider .arrowNext {
+        font-size: 20pt;
+    }
+
+    #container-slider .arrowPrev {
+        left: 15px;
+    }
+
+    #container-slider .arrowNext {
+        right: 15px !important;
+    }
+
+    #slider li .content_slider {
+        padding: 10px 35px;
+    }
+
+    .btnSlider {
+        padding: 10px 30px;
+        font-size: 12pt;
+    }
+
+    .listslider li {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Responsividad para pantallas aún más pequeñas (móviles) */
+@media screen and (max-width: 460px) {
+    #slider {
+        height: 300px;
+    }
+
+    .content_slider h2 {
+        font-size: 15pt !important;
+    }
+
+    .content_slider p {
+        font-size: 12pt !important;
+    }
+
+    #container-slider .arrowPrev, #container-slider .arrowNext {
+        font-size: 18pt;
+    }
+
+    #slider li .content_slider {
+        padding: 10px 20px;
+    }
+
+    .btnSlider {
+        padding: 8px 20px;
+        font-size: 10pt;
+    }
+
+    .listslider li {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+
+
+.container {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
+.heading {
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 4rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+	padding: 3.5rem 0;
+	color: #1a1a1a;
+}
+
+.heading span {
+	display: block;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	/* Compensate for excess margin on outer gallery flex items */
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+	/* Minimum width of 24rem and grow to fit available space */
+	flex: 1 0 24rem;
+	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+	transform: scale(1.15);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+
+@supports (display: grid) {
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+		grid-gap: 2rem;
+	}
+
+	.gallery,
+	.gallery-item {
+		margin: 0;
+	}
+}
+
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+  }
+  
+  .my-float{
+    margin-top:16px;
+  }
+/* Estilos generales para la sección de testimonios */
+#testimonials {
+    padding: 50px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Contenedor de testimonios */
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre los testimonios */
+    flex-wrap: wrap; /* Permite que los testimonios se apilen en pantallas pequeñas */
+}
+
+/* Estilos para cada testimonio */
+.testimonial {
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: "Montserrat", Arial, sans-serif;
+    flex: 1 1 30%; /* Asegura que cada testimonio ocupe un 30% del ancho disponible */
+    box-sizing: border-box; /* Para incluir padding en el cálculo del ancho */
+}
+
+/* Estilo para el texto del testimonio */
+.testimonial p {
+    font-style: italic;
+}
+
+/* Estilo para el nombre del cliente */
+.testimonial h4 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Media query para pantallas de tamaño pequeño (móviles) */
+@media screen and (max-width: 768px) {
+    #testimonials {
+        padding: 30px 15px; /* Reduce el padding para pantallas pequeñas */
+    }
+
+    .testimonial-container {
+        gap: 15px; /* Reduce el espacio entre testimonios */
+    }
+
+    .testimonial {
+        max-width: 90%; /* Permite que los testimonios ocupen el 90% del ancho disponible */
+        margin: 0 auto; /* Centra cada testimonio */
+        flex: 1 1 100%; /* Los testimonios ocuparán todo el ancho en pantallas pequeñas */
+    }
+}
+
+/* Media query para pantallas muy pequeñas (móviles en apaisado) */
+@media screen and (max-width: 480px) {
+    .testimonial p {
+        font-size: 1em; /* Reduce el tamaño de la fuente del testimonio */
+    }
+
+    .testimonial h4 {
+        font-size: 1em; /* Reduce el tamaño de la fuente del nombre */
+    }
+}
+
+ 
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+#contact {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+
+
+footer {
+    background-color: #222;
+    color: white;
+    padding: 30px 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.footer-map iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Cambia al color azul cuando pasa el mouse */
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .footer-info {
+        text-align: left;
+        max-width: 400px;
+    }
+    .footer-map {
+        flex-grow: 1;
+        max-width: 800px;
+    }
+}
+/* Estilos para la sección de éxito */
+.success {
+    width: 100%; /* Hace que la sección ocupe todo el ancho de la pantalla */
+    padding: 50px 20px; /* Espaciado dentro de la sección */
+    text-align: center; /* Centra el contenido */
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border-radius: 0; /* Elimina bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para el título (h1) */
+.success h1 {
+    font-family: "Montserrat", Arial, sans-serif; /* Fuente del título */
+    font-size: 2.5em; /* Tamaño de fuente grande */
+    color: #333; /* Color oscuro */
+    margin-bottom: 20px; /* Espacio inferior */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Estilo para el párrafo (p) */
+.success p {
+    font-family: "Montserrat", Arial, sans-serif; /* Fuente del párrafo */
+    font-size: 1.2em; /* Tamaño de fuente moderado */
+    color: #555; /* Color gris oscuro para el texto */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    max-width: 90%; /* Limita el ancho del texto a un 90% del ancho de la pantalla */
+    margin: 0 auto; /* Centra el párrafo */
+}
+
+/* Media query para pantallas de tamaño pequeño (móviles) */
+@media screen and (max-width: 768px) {
+    .success {
+        padding: 30px 15px; /* Reduce el espaciado en pantallas pequeñas */
+    }
+
+    .success h1 {
+        font-size: 2em; /* Reduce el tamaño de la fuente del título */
+        margin-bottom: 15px; /* Reduce el margen inferior */
+    }
+
+    .success p {
+        font-size: 1em; /* Reduce el tamaño de la fuente del párrafo */
+        line-height: 1.5; /* Ajusta la altura de línea */
+        max-width: 100%; /* Hace que el párrafo ocupe el 100% del ancho disponible */
+    }
+}
+
+/* Media query para pantallas muy pequeñas (móviles en apaisado) */
+@media screen and (max-width: 480px) {
+    .success h1 {
+        font-size: 1.5em; /* Reduce aún más el tamaño de la fuente del título */
+    }
+
+    .success p {
+        font-size: 0.9em; /* Reduce aún más el tamaño de la fuente del párrafo */
+        line-height: 1.4; /* Ajusta la altura de línea */
+    }
+}
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366; /* Color de fondo de WhatsApp */
+  color: white;
+  border-radius: 50%; /* Asegura que sea circular */
+  padding: 20px; /* Aumenta el padding para hacerlo más grande */
+  font-size: 30px;
+  width: 60px; /* Establece un tamaño fijo */
+  height: 60px; /* Establece un tamaño fijo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Elimina el subrayado en el enlace */
+}
+
+#whatsapp-button:hover {
+  background-color: #128C7E; /* Color de fondo cuando pasa el ratón */
+}
+
+#whatsapp-button i {
+  margin: 0;
+}
+
+#contact {
+    text-align: center; /* Centra todo el contenido de la sección */
+    padding: 50px 0; /* Ajusta el espaciado si es necesario */
+}
+
+.contact-btn {
+    display: inline-block; /* Asegura que los botones estén en línea */
+    margin: 10px; /* Espacio entre los botones */
+    padding: 15px 30px; /* Aumenta el tamaño del padding para hacerlo más grande */
+    text-decoration: none;
+    color: white;
+    background-color: #25D366; /* Color de fondo para el botón de WhatsApp */
+    border-radius: 15px; /* Aumenta el radio para hacer los bordes más redondeados */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #128C7E; /* Color al pasar el mouse para el botón de WhatsApp */
+}
+
+.contact-btn.messenger {
+    background-color: #0078FF; /* Color azul de Messenger */
+    color: #fff; /* Cambia el color del texto a blanco */
+    padding: 15px 30px; /* Aumenta el tamaño del padding para hacerlo más grande */
+    border-radius: 15px; /* Aumenta el radio para hacer los bordes más redondeados */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.contact-btn.messenger:hover {
+    background-color: #005bb5; /* Un tono más oscuro de azul al pasar el mouse */
+}
